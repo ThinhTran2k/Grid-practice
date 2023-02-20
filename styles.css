@@ -7,6 +7,19 @@ body {
   padding: 20px;
 }
 
+.container {
+  display: grid;
+
+  /* Set số cột và chiều rộng của cột */
+  grid-template-columns: 300px 200px;
+
+  /* fr - (fraction): đơn vị tương đối */
+  /* grid-template-columns: 1fr 1fr; */
+
+  /* Set số hàng và chiều cao của hàng  */
+  grid-template-rows: 100px 100px;
+}
+
 .item {
   background-color: bisque;
   border: 1px solid grey;
