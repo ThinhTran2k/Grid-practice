@@ -11,17 +11,43 @@ body {
   display: grid;
 
   /* Set số cột và chiều rộng của cột */
-  grid-template-columns: 300px 200px;
+  grid-template-columns: repeat(3, 1fr);  
 
   /* fr - (fraction): đơn vị tương đối */
   /* grid-template-columns: 1fr 1fr; */
+  /* grid-template-columns: repeat(3, 1fr); */
 
   /* Set số hàng và chiều cao của hàng  */
-  grid-template-rows: 100px 100px;
+  /* grid-template-rows: 100px 100px; */
+
+  /* Set chiều cao của hàng một cách tự động */
+  grid-auto-rows: 100px;
+
+  /* Set chiều cao nhỏ nhất và chiều cao lớn nhất của hàng*/
+  /* grid-auto-rows: minmax(60px, auto); */
+
+  /* Định nghĩa area */
+  grid-template-areas: 
+  "aa aa aa"
+  "bb bb bb";
+}
+
+.item-5 {
+  grid-area: aa;
+
+  /* Set kích thước item theo line column VD: line 2 -> line 4 */
+  /* grid-column: 2 / 4; */
+
+  /* Set kích thước item theo line row VD: line 2 -> line 4 */
+  /* grid-row: 2 / 4; */
+}
+
+.item-4 {
+  grid-area: bb;
 }
 
 .item {
   background-color: bisque;
   border: 1px solid grey;
-  height: 50px;
+  min-height: 50px;
 }
