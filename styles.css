@@ -9,6 +9,9 @@ body {
 
 .container {
   display: grid;
+  height: 100vh;
+  width: 100%;
+  gap: 10px;
 
   /* Set số cột và chiều rộng của cột */
   grid-template-columns: repeat(3, 1fr);  
@@ -18,22 +21,30 @@ body {
   /* grid-template-columns: repeat(3, 1fr); */
 
   /* Set số hàng và chiều cao của hàng  */
-  /* grid-template-rows: 100px 100px; */
+  grid-template-rows: 100px 300px 200px 100px;
 
   /* Set chiều cao của hàng một cách tự động */
-  grid-auto-rows: 100px;
+  /* grid-auto-rows: 100px; */
+
+  /* Set chiều rộng của cột một cách tự động */
+  /* grid-auto-columns: 200px; */
 
   /* Set chiều cao nhỏ nhất và chiều cao lớn nhất của hàng*/
   /* grid-auto-rows: minmax(60px, auto); */
 
   /* Định nghĩa area */
   grid-template-areas: 
-  "aa aa aa"
-  "bb bb bb";
+  "header header header"
+  "sidebar content content"
+  "sidebar content content"
+  "footer footer footer";
+
+  /* default sẽ là row */
+  grid-auto-flow: column;
 }
 
 .item-5 {
-  grid-area: aa;
+  /* grid-area: aa; */
 
   /* Set kích thước item theo line column VD: line 2 -> line 4 */
   /* grid-column: 2 / 4; */
@@ -42,12 +53,32 @@ body {
   /* grid-row: 2 / 4; */
 }
 
+.item-1 {
+  grid-area: header;
+}
+.item-2 {
+  grid-area: sidebar;
+}
+.item-3 {
+  grid-area: content;
+
+  display: grid;
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* responsive use grid */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
 .item-4 {
-  grid-area: bb;
+  grid-area: footer;
 }
 
 .item {
   background-color: bisque;
   border: 1px solid grey;
   min-height: 50px;
+  padding: 10px;
+}
+
+.article {
+  border: 5px solid red;
 }
